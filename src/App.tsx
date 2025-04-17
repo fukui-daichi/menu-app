@@ -1,18 +1,33 @@
 import React, { useState, useMemo } from 'react';
 import MenuList from './components/MenuList/MenuList';
 import CategoryFilter from './components/CategoryFilter/CategoryFilter';
+import SearchBar from './components/SearchBar/SearchBar';
 import { MenuItem } from './types/menu';
 import menuData from './data/menu.json';
 
 const App: React.FC = () => {
   const [selectedItems, setSelectedItems] = useState<MenuItem[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string | null>(null);
+  const [searchResults, setSearchResults] = useState<MenuItem[] | null>(null);
   const menuItems: MenuItem[] = menuData as MenuItem[];
 
   const filteredItems = useMemo(() => {
-    if (!currentCategory) return menuItems;
-    return menuItems.filter(item => item.category === currentCategory);
-  }, [menuItems, currentCategory]);
+    let result = menuItems;
+    
+    // カテゴリでフィルタリング
+    if (currentCategory) {
+      result = result.filter(item => item.category === currentCategory);
+    }
+    
+    // 検索結果がある場合はさらにフィルタリング
+    if (searchResults) {
+      result = result.filter(item => 
+        searchResults.some(r => r.id === item.id)
+      );
+    }
+    
+    return result;
+  }, [menuItems, currentCategory, searchResults]);
 
   const handleSelectItem = (item: MenuItem) => {
     setSelectedItems([...selectedItems, item]);
@@ -21,6 +36,10 @@ const App: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6">メニュー一覧</h1>
+      <SearchBar 
+        items={menuItems}
+        onSearch={setSearchResults}
+      />
       <CategoryFilter 
         items={menuItems}
         currentCategory={currentCategory}
