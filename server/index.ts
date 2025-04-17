@@ -14,9 +14,10 @@ const app = express();
 const PORT = 3001;
 
 app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type']
+  origin: '*',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true
 }));
 app.use(express.json());
 
