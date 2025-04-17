@@ -76,7 +76,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ items, onSearch }) => {
       <div className="relative">
         <input
           type="text"
-          placeholder="メニュー名またはタグで検索..."
+          placeholder="料理名や材料で検索..."
           className="w-full p-2 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}

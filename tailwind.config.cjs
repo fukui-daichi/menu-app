@@ -4,7 +4,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#FF7B54', // 濃いオレンジ
+        'primary-dark': '#E85C3C', // プライマリの濃いバージョン
+        secondary: '#FFB38A', // 中間のパステルオレンジ
+        accent: '#FFD1B6', // 明るいパステルオレンジ
+      },
+    },
   },
   plugins: [],
 }

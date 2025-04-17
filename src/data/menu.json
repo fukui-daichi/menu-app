@@ -105,5 +105,87 @@
     "imageUrl": "/images/menu/10.jpg",
     "description": "濃厚なチョコレートケーキ",
     "tags": ["甘い", "人気"]
+  },
+  {
+    "id": "menu11",
+    "name": "和風ハンバーグ", 
+    "category": "肉料理",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "和風だしの効いたハンバーグ",
+    "recipe": {
+      "ingredients": [
+        {"name": "合挽き肉", "amount": "200g"},
+        {"name": "玉ねぎ", "amount": "1/2個"},
+        {"name": "パン粉", "amount": "1/2カップ"},
+        {"name": "和風だし", "amount": "小さじ1"}
+      ],
+      "steps": ["材料を混ぜ合わせる", "形を整えて焼く"]
+    },
+    "tags": ["和風", "肉"]
+  },
+  {
+    "id": "menu12",
+    "name": "トマトスープ",
+    "category": "スープ",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "新鮮なトマトを使ったスープ",
+    "recipe": {
+      "ingredients": [
+        {"name": "トマト", "amount": "3個"},
+        {"name": "玉ねぎ", "amount": "1/2個"},
+        {"name": "コンソメ", "amount": "1個"}
+      ]
+    },
+    "tags": ["野菜", "ヘルシー"]
+  },
+  {
+    "id": "menu13", 
+    "name": "チキンカレー",
+    "category": "カレー",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "スパイシーなチキンカレー",
+    "recipe": {
+      "ingredients": [
+        {"name": "鶏肉", "amount": "300g"},
+        {"name": "カレールー", "amount": "1箱"},
+        {"name": "玉ねぎ", "amount": "1個"}
+      ]
+    },
+    "tags": ["スパイシー", "肉"]
+  },
+  {
+    "id": "menu14",
+    "name": "ほうれん草のソテー",
+    "category": "野菜料理",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/no-image.jpg", 
+    "description": "にんにく風味のほうれん草",
+    "recipe": {
+      "ingredients": [
+        {"name": "ほうれん草", "amount": "1束"},
+        {"name": "にんにく", "amount": "1片"},
+        {"name": "オリーブオイル", "amount": "大さじ1"}
+      ]
+    },
+    "tags": ["ヘルシー", "野菜"]
+  },
+  {
+    "id": "menu15",
+    "name": "鮭のムニエル",
+    "category": "魚料理",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "バター香る鮭料理",
+    "recipe": {
+      "ingredients": [
+        {"name": "鮭", "amount": "2切れ"},
+        {"name": "バター", "amount": "20g"},
+        {"name": "レモン", "amount": "1/4個"}
+      ]
+    },
+    "tags": ["魚", "シンプル"]
   }
 ]

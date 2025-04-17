@@ -5,6 +5,7 @@ interface MenuItem {
   isRecommended: boolean; // おすすめフラグ
   imageUrl?: string;   // 画像URL（ない場合はオプショナル）
   description?: string; // 料理の説明（オプショナル）
+  quantity?: number;   // 注文数量（デフォルト1）
   recipe?: {           // レシピ情報
     ingredients: Array<{
       name: string;    // 素材名

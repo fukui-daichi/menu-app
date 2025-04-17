@@ -31,7 +31,13 @@ const App: React.FC = () => {
   }, [menuItems, currentCategory, searchResults]);
 
   const handleSelectItem = (item: MenuItem) => {
-    setSelectedItems([...selectedItems, item]);
+    setSelectedItems(prev => {
+      // 既に選択済みの場合は何もしない
+      if (prev.some(selected => selected.id === item.id)) {
+        return prev;
+      }
+      return [...prev, {...item, quantity: 1}];
+    });
   };
 
   return (
@@ -39,7 +45,7 @@ const App: React.FC = () => {
       {/* スマートフォンフレーム */}
       <div className="bg-white rounded-3xl shadow-xl w-full max-w-md h-full flex flex-col">
         {/* ヘッダー */}
-        <div className="px-4 py-3 border-b sticky top-0 bg-white z-10">
+        <div className="px-4 py-3 border-b sticky top-0 bg-primary text-white z-10">
           <div className="text-xl font-semibold">Menu</div>
         </div>
 
@@ -68,13 +74,33 @@ const App: React.FC = () => {
 
           {/* メニューリスト */}
           <div className="w-3/4 overflow-y-auto">
-            <MenuList items={filteredItems} onSelectItem={handleSelectItem} />
+            <MenuList 
+              items={filteredItems}
+              selectedItems={selectedItems}
+              onSelectItem={handleSelectItem}
+              onQuantityChange={(id, quantity) => {
+                if (id === '') {
+                  setSelectedItems([]); // 全削除
+                } else {
+                  setSelectedItems(prev => 
+                    prev.filter(item => item.id !== id)
+                  );
+                }
+              }}
+            />
           </div>
         </div>
 
         {/* フッター/カート */}
         <div className="bg-white border-t px-4 py-3">
-          <OrderButton selectedItems={selectedItems} />
+          <OrderButton 
+            selectedItems={selectedItems}
+            onQuantityChange={(id, quantity) => {
+              setSelectedItems(prev => 
+                prev.filter(item => item.id !== id)
+              );
+            }}
+          />
         </div>
       </div>
     </div>

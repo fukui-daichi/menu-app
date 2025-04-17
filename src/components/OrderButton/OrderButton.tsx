@@ -1,22 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MenuItem } from '../../types/menu';
 import { sendLineNotification, formatOrderMessage } from '../../api/line-notify';
+import OrderConfirmationModal from '../OrderConfirmationModal';
 
 interface OrderButtonProps {
   selectedItems: MenuItem[];
+  onQuantityChange: (id: string, quantity: number) => void;
 }
 
-const OrderButton: React.FC<OrderButtonProps> = ({ selectedItems }) => {
+const OrderButton: React.FC<OrderButtonProps> = ({ 
+  selectedItems,
+  onQuantityChange
+}) => {
+  const [showModal, setShowModal] = useState(false);
+  const clearAllItems = () => {
+    selectedItems.forEach(item => {
+      onQuantityChange(item.id, -1); // 各アイテムを個別に削除
+    });
+  };
+
   const handleOrder = async () => {
     if (selectedItems.length === 0) {
       alert('注文するメニューを選択してください');
       return;
     }
+    setShowModal(true);
+  };
 
+  const confirmOrder = async () => {
     try {
-      // ユーザー自身のLINEユーザーIDを指定 (実際にはログイン機能などで取得)
       const userId = import.meta.env.VITE_LINE_USER_ID || '';
-      
       if (!userId) {
         throw new Error('LINEユーザーIDが設定されていません');
       }
@@ -24,12 +37,14 @@ const OrderButton: React.FC<OrderButtonProps> = ({ selectedItems }) => {
       const message = formatOrderMessage(
         selectedItems.map(item => ({
           name: item.name,
-          category: item.category
+          category: item.category,
+          quantity: item.quantity || 1
         }))
       );
       
       await sendLineNotification(userId, message);
       alert('注文が送信されました！LINEで確認してください');
+      setShowModal(false);
     } catch (error: unknown) {
       console.error('Error:', error);
       const errorMessage = error instanceof Error ? error.message : '不明なエラー';
@@ -38,12 +53,31 @@ const OrderButton: React.FC<OrderButtonProps> = ({ selectedItems }) => {
   };
 
   return (
-    <button
-      onClick={handleOrder}
-      className="block ml-auto bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded transition-colors"
-    >
-      カートに追加 ({selectedItems.length})
-    </button>
+    <>
+      <div className="flex gap-2 justify-center">
+        <button
+          onClick={clearAllItems}
+          className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100"
+        >
+          全選択解除
+        </button>
+        <button
+          onClick={handleOrder}
+          className="bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded transition-colors"
+        >
+          注文する ({selectedItems.length})
+        </button>
+      </div>
+
+      {showModal && (
+        <OrderConfirmationModal
+          selectedItems={selectedItems}
+          onConfirm={confirmOrder}
+          onCancel={() => setShowModal(false)}
+          onQuantityChange={onQuantityChange}
+        />
+      )}
+    </>
   );
 };
 
