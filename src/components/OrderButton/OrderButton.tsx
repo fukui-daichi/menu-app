@@ -40,9 +40,9 @@ const OrderButton: React.FC<OrderButtonProps> = ({ selectedItems }) => {
   return (
     <button
       onClick={handleOrder}
-      className="fixed bottom-6 right-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-colors"
+      className="block ml-auto bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded transition-colors"
     >
-      注文する ({selectedItems.length})
+      カートに追加 ({selectedItems.length})
     </button>
   );
 };

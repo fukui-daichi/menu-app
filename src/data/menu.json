@@ -4,6 +4,7 @@
     "name": "和風パスタ",
     "category": "パスタ",
     "isRecommended": true,
+    "price": 980,
     "imageUrl": "/images/menu/1.jpg",
     "description": "和風だしの効いたパスタ",
     "tags": ["和風", "人気"],
@@ -20,6 +21,7 @@
     "name": "チキンカレー",
     "category": "カレー",
     "isRecommended": true,
+    "price": 850,
     "imageUrl": "/images/menu/2.jpg",
     "description": "スパイス効いた本格カレー",
     "tags": ["辛口", "人気"]
@@ -29,6 +31,7 @@
     "name": "季節のサラダ",
     "category": "サラダ",
     "isRecommended": false,
+    "price": 680,
     "imageUrl": "/images/menu/3.jpg",
     "description": "旬の野菜を使ったサラダ",
     "tags": ["ヘルシー"]
@@ -38,6 +41,7 @@
     "name": "トマトパスタ",
     "category": "パスタ",
     "isRecommended": true,
+    "price": 980,
     "imageUrl": "/images/menu/4.jpg",
     "description": "新鮮なトマトのパスタ",
     "tags": ["イタリアン", "人気"]
@@ -47,6 +51,7 @@
     "name": "ビーフシチュー",
     "category": "洋食",
     "isRecommended": false,
+    "price": 1200,
     "imageUrl": "/images/menu/5.jpg",
     "description": "赤ワイン仕立てのビーフシチュー",
     "tags": ["ボリューム"]
@@ -56,6 +61,7 @@
     "name": "海鮮丼",
     "category": "和食",
     "isRecommended": true,
+    "price": 1500,
     "imageUrl": "/images/menu/6.jpg",
     "description": "新鮮な魚介類の海鮮丼",
     "tags": ["新鮮", "人気"]
@@ -65,6 +71,7 @@
     "name": "チーズバーガー",
     "category": "ハンバーガー",
     "isRecommended": false,
+    "price": 780,
     "imageUrl": "/images/menu/7.jpg",
     "description": "ジューシーなチーズバーガー",
     "tags": ["ボリューム"]
@@ -74,6 +81,7 @@
     "name": "野菜炒め",
     "category": "中華",
     "isRecommended": false,
+    "price": 750,
     "imageUrl": "/images/menu/8.jpg",
     "description": "季節の野菜を炒めたヘルシー料理",
     "tags": ["ヘルシー"]
@@ -83,6 +91,7 @@
     "name": "サーモングリル",
     "category": "魚料理",
     "isRecommended": true,
+    "price": 1280,
     "imageUrl": "/images/menu/9.jpg",
     "description": "皮パリッと焼いたサーモン",
     "tags": ["ヘルシー", "人気"]
@@ -92,6 +101,7 @@
     "name": "チョコレートケーキ",
     "category": "デザート",
     "isRecommended": true,
+    "price": 580,
     "imageUrl": "/images/menu/10.jpg",
     "description": "濃厚なチョコレートケーキ",
     "tags": ["甘い", "人気"]

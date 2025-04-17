@@ -72,12 +72,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ items, onSearch }) => {
   };
 
   return (
-    <div className="mb-6 relative">
+    <div>
       <div className="relative">
         <input
           type="text"
           placeholder="メニュー名またはタグで検索..."
-          className="w-full p-3 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-2 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={() => setShowSuggestions(searchTerm.length > 0)}

@@ -15,12 +15,12 @@ const App: React.FC = () => {
   const filteredItems = useMemo(() => {
     let result = menuItems;
     
-    // カテゴリでフィルタリング
-    if (currentCategory) {
+    if (currentCategory === 'recommended') {
+      result = result.filter(item => item.isRecommended);
+    } else if (currentCategory) {
       result = result.filter(item => item.category === currentCategory);
     }
     
-    // 検索結果がある場合はさらにフィルタリング
     if (searchResults) {
       result = result.filter(item => 
         searchResults.some(r => r.id === item.id)
@@ -35,30 +35,48 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">メニュー一覧</h1>
-      <SearchBar 
-        items={menuItems}
-        onSearch={setSearchResults}
-      />
-      <CategoryFilter 
-        items={menuItems}
-        currentCategory={currentCategory}
-        onSelectCategory={setCurrentCategory}
-      />
-      <MenuList items={filteredItems} onSelectItem={handleSelectItem} />
-      
-      {selectedItems.length > 0 && (
-        <div className="mt-8">
-          <h2 className="text-xl font-semibold mb-4">選択したメニュー</h2>
-          <ul>
-            {selectedItems.map(item => (
-              <li key={item.id} className="mb-2">{item.name}</li>
-            ))}
-          </ul>
+    <div className="bg-gray-100 flex justify-center items-center h-[100svh]">
+      {/* スマートフォンフレーム */}
+      <div className="bg-white rounded-3xl shadow-xl w-full max-w-md h-full flex flex-col">
+        {/* ヘッダー */}
+        <div className="px-4 py-3 border-b sticky top-0 bg-white z-10">
+          <div className="text-xl font-semibold">Menu</div>
         </div>
-      )}
-      <OrderButton selectedItems={selectedItems} />
+
+        {/* 検索バー */}
+        <div className="px-4 py-2 border-b">
+          <SearchBar 
+            items={menuItems}
+            onSearch={setSearchResults}
+          />
+        </div>
+
+        {/* メインコンテンツ */}
+        <div className="flex flex-1 overflow-y-auto">
+          {/* カテゴリメニュー */}
+          <div className="w-1/4 bg-gray-50 border-r overflow-y-auto">
+            <CategoryFilter 
+              items={menuItems}
+              currentCategory={currentCategory}
+              onSelectCategory={setCurrentCategory}
+              onSelectRecommended={() => {
+                setCurrentCategory('recommended');
+                setSearchResults(null); // 検索結果をクリア
+              }}
+            />
+          </div>
+
+          {/* メニューリスト */}
+          <div className="w-3/4 overflow-y-auto">
+            <MenuList items={filteredItems} onSelectItem={handleSelectItem} />
+          </div>
+        </div>
+
+        {/* フッター/カート */}
+        <div className="bg-white border-t px-4 py-3">
+          <OrderButton selectedItems={selectedItems} />
+        </div>
+      </div>
     </div>
   );
 };
