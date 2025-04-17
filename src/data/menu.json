@@ -32,5 +32,68 @@
     "imageUrl": "/images/menu/3.jpg",
     "description": "旬の野菜を使ったサラダ",
     "tags": ["ヘルシー"]
+  },
+  {
+    "id": "4",
+    "name": "トマトパスタ",
+    "category": "パスタ",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/4.jpg",
+    "description": "新鮮なトマトのパスタ",
+    "tags": ["イタリアン", "人気"]
+  },
+  {
+    "id": "5",
+    "name": "ビーフシチュー",
+    "category": "洋食",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/5.jpg",
+    "description": "赤ワイン仕立てのビーフシチュー",
+    "tags": ["ボリューム"]
+  },
+  {
+    "id": "6",
+    "name": "海鮮丼",
+    "category": "和食",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/6.jpg",
+    "description": "新鮮な魚介類の海鮮丼",
+    "tags": ["新鮮", "人気"]
+  },
+  {
+    "id": "7",
+    "name": "チーズバーガー",
+    "category": "ハンバーガー",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/7.jpg",
+    "description": "ジューシーなチーズバーガー",
+    "tags": ["ボリューム"]
+  },
+  {
+    "id": "8",
+    "name": "野菜炒め",
+    "category": "中華",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/8.jpg",
+    "description": "季節の野菜を炒めたヘルシー料理",
+    "tags": ["ヘルシー"]
+  },
+  {
+    "id": "9",
+    "name": "サーモングリル",
+    "category": "魚料理",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/9.jpg",
+    "description": "皮パリッと焼いたサーモン",
+    "tags": ["ヘルシー", "人気"]
+  },
+  {
+    "id": "10",
+    "name": "チョコレートケーキ",
+    "category": "デザート",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/10.jpg",
+    "description": "濃厚なチョコレートケーキ",
+    "tags": ["甘い", "人気"]
   }
 ]

@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import MenuList from './components/MenuList/MenuList';
+import CategoryFilter from './components/CategoryFilter/CategoryFilter';
 import { MenuItem } from './types/menu';
 import menuData from './data/menu.json';
 
 const App: React.FC = () => {
   const [selectedItems, setSelectedItems] = useState<MenuItem[]>([]);
+  const [currentCategory, setCurrentCategory] = useState<string | null>(null);
   const menuItems: MenuItem[] = menuData as MenuItem[];
+
+  const filteredItems = useMemo(() => {
+    if (!currentCategory) return menuItems;
+    return menuItems.filter(item => item.category === currentCategory);
+  }, [menuItems, currentCategory]);
 
   const handleSelectItem = (item: MenuItem) => {
     setSelectedItems([...selectedItems, item]);
@@ -14,7 +21,12 @@ const App: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6">メニュー一覧</h1>
-      <MenuList items={menuItems} onSelectItem={handleSelectItem} />
+      <CategoryFilter 
+        items={menuItems}
+        currentCategory={currentCategory}
+        onSelectCategory={setCurrentCategory}
+      />
+      <MenuList items={filteredItems} onSelectItem={handleSelectItem} />
       
       {selectedItems.length > 0 && (
         <div className="mt-8">
