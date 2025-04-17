@@ -19,10 +19,12 @@ export const sendLineNotification = async (userId: string, message: string) => {
 };
 
 export const formatOrderMessage = (items: Array<{name: string, category: string}>) => {
-  let message = '【注文内容】\n';
-  items.forEach(item => {
-    message += `・${item.name} (${item.category})\n`;
+  let message = '🍴【注文内容】🍴\n\n';
+  items.forEach((item, index) => {
+    message += `${index + 1}. ${item.name} (${item.category})\n`;
   });
-  message += `\n合計 ${items.length}品`;
+  message += '\n--------------------\n';
+  message += `✅ 合計: ${items.length}品\n`;
+  message += 'ご注文ありがとうございます！';
   return message;
 };
