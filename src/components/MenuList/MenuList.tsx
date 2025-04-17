@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { MenuItem } from '../../types/menu';
+import { gsap } from 'gsap';
 
 interface MenuListProps {
   items: MenuItem[];
@@ -9,23 +10,65 @@ interface MenuListProps {
 }
 
 const MenuList: React.FC<MenuListProps> = ({ items, selectedItems, onSelectItem, onQuantityChange }) => {
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // カテゴリ変更時のアニメーション
+  useEffect(() => {
+    if (items.length > 0) {
+      itemRefs.current.forEach((ref, index) => {
+        if (ref) {
+          gsap.fromTo(ref, 
+            { opacity: 0, y: 10 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.2,
+              delay: index * 0.03,
+              ease: "power1.out"
+            }
+          );
+        }
+      });
+    }
+  }, [items]);
+
+  const handleSelectWithAnimation = (item: MenuItem) => {
+    const index = items.findIndex(i => i.id === item.id);
+    const ref = itemRefs.current[index];
+    
+    if (ref) {
+      gsap.to(ref, {
+        scale: 0.92,
+        duration: 0.08,
+        yoyo: true,
+        repeat: 1,
+        ease: "back.out(1.7)",
+        onComplete: () => {
+          if (selectedItems.some(selected => selected.id === item.id)) {
+            onQuantityChange(item.id, -1);
+          } else {
+            onSelectItem({...item, quantity: 1});
+          }
+        }
+      });
+    }
+  };
   return (
     <div className="px-2">
       {items.map((item) => (
           <div
             key={item.id}
+            ref={el => {
+              if (el) {
+                itemRefs.current[items.indexOf(item)] = el;
+              }
+            }}
             className={`flex items-center p-2 border-b cursor-pointer ${
               selectedItems.some(selected => selected.id === item.id) 
                 ? 'bg-secondary' 
                 : 'hover:bg-gray-50'
             }`}
-            onClick={() => {
-              if (selectedItems.some(selected => selected.id === item.id)) {
-                onQuantityChange(item.id, -1); // 選択解除
-              } else {
-                onSelectItem({...item, quantity: 1}); // 選択
-              }
-            }}
+            onClick={() => handleSelectWithAnimation(item)}
           >
           <div className="flex-1">
             <div className="flex items-center justify-between w-full">

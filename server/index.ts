@@ -23,7 +23,7 @@ app.post('/api/line-notify', async (req, res) => {
     const { userId, message } = req.body;
     
     if (!CHANNEL_ACCESS_TOKEN) {
-      throw new Error('LINEアクセストークンが設定されていません');
+      throw new Error('LINEアクセストークンが設定されていません。.env.localファイルに以下の形式で設定してください:\nLINE_ACCESS_TOKEN=あなたのチャネルアクセストークン');
     }
 
     console.log('LINE通知リクエストデータ:', { userId, message });
@@ -31,20 +31,24 @@ app.post('/api/line-notify', async (req, res) => {
 
     const requestData = {
       to: userId,
-      messages: [{ type: 'text', text: message }]
+      messages: [
+        {
+          type: 'text',
+          text: message
+        }
+      ]
     };
 
     console.log('送信データ:', JSON.stringify(requestData, null, 2));
 
     const response = await axios.post(
       LINE_API_URL,
-      JSON.stringify(requestData), // 明示的にJSON化
+      requestData,
       {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${CHANNEL_ACCESS_TOKEN}`
-        },
-        transformRequest: [] // axiosのデフォルト変換を無効化
+        }
       }
     );
 
