@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import MenuList from './components/MenuList/MenuList';
 import CategoryFilter from './components/CategoryFilter/CategoryFilter';
 import SearchBar from './components/SearchBar/SearchBar';
+import OrderButton from './components/OrderButton/OrderButton';
 import { MenuItem } from './types/menu';
 import menuData from './data/menu.json';
 
@@ -57,6 +58,7 @@ const App: React.FC = () => {
           </ul>
         </div>
       )}
+      <OrderButton selectedItems={selectedItems} />
     </div>
   );
 };
