@@ -1,0 +1,36 @@
+[
+  {
+    "id": "1",
+    "name": "和風パスタ",
+    "category": "パスタ",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/1.jpg",
+    "description": "和風だしの効いたパスタ",
+    "tags": ["和風", "人気"],
+    "recipe": {
+      "ingredients": [
+        { "name": "パスタ", "amount": "100g" },
+        { "name": "和風だし", "amount": "大さじ2" }
+      ],
+      "steps": ["パスタを茹でる", "和風だしと和える"]
+    }
+  },
+  {
+    "id": "2",
+    "name": "チキンカレー",
+    "category": "カレー",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/2.jpg",
+    "description": "スパイス効いた本格カレー",
+    "tags": ["辛口", "人気"]
+  },
+  {
+    "id": "3",
+    "name": "季節のサラダ",
+    "category": "サラダ",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/3.jpg",
+    "description": "旬の野菜を使ったサラダ",
+    "tags": ["ヘルシー"]
+  }
+]
