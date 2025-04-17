@@ -1,9 +1,14 @@
 import express from 'express';
+import path from 'path';
 import cors from 'cors';
 import axios from 'axios';
 import dotenv from 'dotenv';
 
-dotenv.config();
+// 環境変数の読み込みを確認
+const envPath = path.resolve(process.cwd(), '.env.local');
+console.log('Loading .env from:', envPath);
+dotenv.config({ path: envPath });
+console.log('LINE_ACCESS_TOKEN:', process.env.LINE_ACCESS_TOKEN ? 'Loaded' : 'Not loaded');
 
 const app = express();
 const PORT = 3001;
@@ -16,7 +21,7 @@ app.use(cors({
 app.use(express.json());
 
 const LINE_API_URL = 'https://api.line.me/v2/bot/message/push';
-const CHANNEL_ACCESS_TOKEN = process.env.LINE_ACCESS_TOKEN;
+const CHANNEL_ACCESS_TOKEN = process.env.LINE_ACCESS_TOKEN || '5fnGX31x41Kfz6dS+5OUZLEmJKqzDaKxi0sTjhVvvBj7VsYp7MhEsW66SKKxnBCJHCBs8+kU7v7BO0Eh+N/xvM2cDRiZ56aBEca4mmZoI87IVWRgpSkyJCwOHvlx2/WlSYqNjLmphrJO1EdTsrs3CQdB04t89/1O/w1cDnyilFU=';
 
 app.post('/api/line-notify', async (req, res) => {
   try {
