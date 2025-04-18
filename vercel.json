@@ -20,6 +20,12 @@
       "methods": ["GET", "POST", "OPTIONS"]
     },
     {
+      "src": "/images/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
       "src": "/assets/(.*)",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"

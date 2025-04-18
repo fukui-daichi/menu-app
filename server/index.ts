@@ -14,7 +14,10 @@ const app = express();
 const PORT = 3001;
 
 app.use(cors({
-  origin: '*',
+  origin: [
+    'https://menu-app-wine-ten.vercel.app',
+    'https://menu-dzao9n79q-fukuis-projects.vercel.app'
+  ],
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
   credentials: true
