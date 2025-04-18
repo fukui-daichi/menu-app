@@ -17,7 +17,12 @@
     {
       "src": "/api/line-notify",
       "dest": "server/index.ts",
-      "methods": ["GET", "POST", "OPTIONS"]
+      "methods": ["GET", "POST", "OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://menu-app-wine-ten.vercel.app",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
+      }
     },
     {
       "src": "/images/(.*)",
