@@ -3,11 +3,8 @@ import path from 'path';
 import cors from 'cors';
 import axios from 'axios';
 import dotenv from 'dotenv';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// CommonJS用のパス解決
+const __dirname = path.dirname(process.argv[1]);
 
 // 環境変数の読み込みを確認
 const envPath = path.resolve(__dirname, '../../.env.local');
