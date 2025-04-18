@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { MenuItem } from '../../types/menu';
 import { gsap } from 'gsap';
+import SkeletonImage from '../common/SkeletonImage';
 
 interface MenuListProps {
   items: MenuItem[];
@@ -83,18 +84,16 @@ const MenuList: React.FC<MenuListProps> = ({ items, selectedItems, onSelectItem,
               </span>
             </div>
           </div>
-          {item.imageUrl && (
-            <div className="w-24 ml-4 aspect-[3/2]">
-              <img
-                src={item.imageUrl}
-                alt={item.name}
-                className="w-full h-full object-cover rounded-lg"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
-              />
-            </div>
-          )}
+            {item.imageUrl && (
+              <div className="w-24 ml-4">
+                <SkeletonImage 
+                  src={item.imageUrl}
+                  alt={item.name}
+                  className="rounded-lg"
+                  imageClassName="rounded-lg"
+                />
+              </div>
+            )}
         </div>
       ))}
     </div>
