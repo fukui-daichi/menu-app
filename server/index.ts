@@ -10,14 +10,18 @@ if (process.env.NODE_ENV !== 'production') {
   dotenv.config({ path: envPath });
 }
 
-// 必須環境変数のバリデーション
-const requiredEnvVars = ['LINE_ACCESS_TOKEN', 'ALLOWED_ORIGINS'];
-const missingVars = requiredEnvVars.filter(v => !process.env[v]);
+// 環境変数のバリデーション（本番環境のみ厳格にチェック）
+if (process.env.NODE_ENV === 'production') {
+  const requiredEnvVars = ['LINE_ACCESS_TOKEN', 'ALLOWED_ORIGINS'];
+  const missingVars = requiredEnvVars.filter(v => !process.env[v]);
 
-if (missingVars.length > 0) {
-  console.error('以下の必須環境変数が設定されていません:');
-  missingVars.forEach(v => console.error(`- ${v}`));
-  process.exit(1);
+  if (missingVars.length > 0) {
+    console.error('以下の必須環境変数が設定されていません:');
+    missingVars.forEach(v => console.error(`- ${v}`));
+    process.exit(1);
+  }
+} else {
+  console.warn('開発環境のため、環境変数の厳格なチェックをスキップします');
 }
 
 // ログ設定
