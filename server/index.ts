@@ -3,88 +3,107 @@ import path from 'path';
 import cors from 'cors';
 import axios from 'axios';
 import dotenv from 'dotenv';
-// CommonJS用のパス解決
-const __dirname = path.dirname(process.argv[1]);
 
-// 環境変数の読み込みを確認
-const envPath = path.resolve(__dirname, '../../.env.local');
-console.log('Loading .env from:', envPath);
-dotenv.config({ path: envPath });
-console.log('LINE_ACCESS_TOKEN:', process.env.LINE_ACCESS_TOKEN ? 'Loaded' : 'Not loaded');
+// 環境変数の読み込み (開発環境のみ)
+if (process.env.NODE_ENV !== 'production') {
+  const envPath = path.resolve(process.cwd(), '.env.local');
+  dotenv.config({ path: envPath });
+}
+
+// 必須環境変数のバリデーション
+const requiredEnvVars = ['LINE_ACCESS_TOKEN', 'ALLOWED_ORIGINS'];
+const missingVars = requiredEnvVars.filter(v => !process.env[v]);
+
+if (missingVars.length > 0) {
+  console.error('以下の必須環境変数が設定されていません:');
+  missingVars.forEach(v => console.error(`- ${v}`));
+  process.exit(1);
+}
+
+// ログ設定
+const log = {
+  info: (...args: any[]) => console.log('[INFO]', ...args),
+  error: (...args: any[]) => console.error('[ERROR]', ...args),
+  debug: (...args: any[]) => {
+    if (process.env.NODE_ENV !== 'production') {
+      console.debug('[DEBUG]', ...args);
+    }
+  }
+};
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
+// CORS設定
 app.use(cors({
-  origin: [
-    'https://menu-app-wine-ten.vercel.app',
-    'https://menu-dzao9n79q-fukuis-projects.vercel.app'
-  ],
+  origin: process.env.ALLOWED_ORIGINS?.split(',') || [],
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
   credentials: true
 }));
+
+// ミドルウェア
 app.use(express.json());
 
-const LINE_API_URL = 'https://api.line.me/v2/bot/message/push';
-const CHANNEL_ACCESS_TOKEN = process.env.LINE_ACCESS_TOKEN || '5fnGX31x41Kfz6dS+5OUZLEmJKqzDaKxi0sTjhVvvBj7VsYp7MhEsW66SKKxnBCJHCBs8+kU7v7BO0Eh+N/xvM2cDRiZ56aBEca4mmZoI87IVWRgpSkyJCwOHvlx2/WlSYqNjLmphrJO1EdTsrs3CQdB04t89/1O/w1cDnyilFU=';
+// ヘルスチェックエンドポイント
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK',
+    timestamp: new Date().toISOString()
+  });
+});
+
+const LINE_API_URL = process.env.LINE_API_URL || 'https://api.line.me/v2/bot/message/push';
+const CHANNEL_ACCESS_TOKEN = process.env.LINE_ACCESS_TOKEN;
+
+interface LineNotifyRequest {
+  userId: string;
+  message: string;
+}
 
 app.post('/api/line-notify', async (req, res) => {
   try {
-    const { userId, message } = req.body;
+    const { userId, message }: LineNotifyRequest = req.body;
     
-    if (!CHANNEL_ACCESS_TOKEN) {
-      throw new Error('LINEアクセストークンが設定されていません。.env.localファイルに以下の形式で設定してください:\nLINE_ACCESS_TOKEN=あなたのチャネルアクセストークン');
-    }
-
-    console.log('LINE通知リクエストデータ:', { userId, message });
-    console.log('LINE_ACCESS_TOKEN:', CHANNEL_ACCESS_TOKEN ? '設定済み' : '未設定');
+    log.debug('LINE通知リクエスト受信:', { userId, message });
 
     const requestData = {
       to: userId,
-      messages: [
-        {
-          type: 'text',
-          text: message
-        }
-      ]
+      messages: [{
+        type: 'text',
+        text: message
+      }]
     };
 
-    console.log('送信データ:', JSON.stringify(requestData, null, 2));
+    log.debug('LINE API送信データ:', requestData);
 
-    const response = await axios.post(
-      LINE_API_URL,
-      requestData,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${CHANNEL_ACCESS_TOKEN}`
-        }
+    const response = await axios.post(LINE_API_URL, requestData, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${CHANNEL_ACCESS_TOKEN}`
       }
-    );
+    });
 
+    log.info('LINE通知送信成功:', response.data);
     res.json(response.data);
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      console.error('LINE APIエラー詳細:', {
+      log.error('LINE APIエラー:', {
         status: error.response?.status,
         data: error.response?.data,
-        config: {
-          url: error.config?.url,
-          method: error.config?.method,
-          data: error.config?.data
-        }
+        url: error.config?.url
       });
     } else {
-      console.error('LINE通知エラー:', error);
+      log.error('LINE通知エラー:', error);
     }
     res.status(500).json({ 
       error: 'LINE通知に失敗しました',
-      details: axios.isAxiosError(error) ? error.response?.data : error.message 
+      details: error instanceof Error ? error.message : 'Unknown error'
     });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  log.info(`Server started on port ${PORT}`);
+  log.debug('Allowed origins:', process.env.ALLOWED_ORIGINS?.split(','));
 });
