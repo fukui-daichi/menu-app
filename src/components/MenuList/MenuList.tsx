@@ -33,6 +33,21 @@ const MenuList: React.FC<MenuListProps> = ({ items, selectedItems, onSelectItem,
     }
   }, [items]);
 
+  // 全選択解除時の背景色リセット
+  useEffect(() => {
+    if (selectedItems.length === 0) {
+      itemRefs.current.forEach(ref => {
+        if (ref) {
+          gsap.to(ref, {
+            backgroundColor: "#ffffff",
+            duration: 0.2,
+            ease: "power2.out"
+          });
+        }
+      });
+    }
+  }, [selectedItems]);
+
   const handleSelectWithAnimation = (item: MenuItem) => {
     const index = items.findIndex(i => i.id === item.id);
     const ref = itemRefs.current[index];

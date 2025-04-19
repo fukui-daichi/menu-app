@@ -84,13 +84,25 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
           )}
         </div>
 
-        <div className="flex justify-end gap-2 mt-6">
+        <div className="flex justify-between mt-6">
           <button
-            onClick={onCancel}
-            className="px-4 py-2 border rounded hover:bg-gray-100"
+            onClick={() => {
+              selectedItems.forEach(item => {
+                onQuantityChange(item.id, -1);
+              });
+            }}
+            className="px-4 py-2 text-red-600 border border-red-200 rounded hover:bg-red-50"
+            disabled={selectedItems.length === 0}
           >
-            キャンセル
+            全選択解除
           </button>
+          <div className="flex gap-2">
+            <button
+              onClick={onCancel}
+              className="px-4 py-2 border rounded hover:bg-gray-100"
+            >
+              キャンセル
+            </button>
           <button
             onClick={selectedItems.length > 0 ? onConfirm : undefined}
             disabled={selectedItems.length === 0}
@@ -102,6 +114,7 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
           >
             注文を確定
           </button>
+          </div>
         </div>
       </div>
     </div>
