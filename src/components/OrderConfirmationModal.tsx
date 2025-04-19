@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 import { MenuItem } from '../types/menu';
 
 interface OrderConfirmationModalProps {
@@ -14,8 +15,28 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
   onCancel,
   onQuantityChange
 }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (modalRef.current && overlayRef.current) {
+      // アニメーション初期状態
+      gsap.set(modalRef.current, { y: 50, opacity: 0 });
+      gsap.set(overlayRef.current, { opacity: 0 });
+
+      // 表示アニメーション
+      gsap.to(overlayRef.current, { opacity: 1, duration: 0.3 });
+      gsap.to(modalRef.current, { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.4,
+        ease: "back.out"
+      });
+    }
+  }, []);
   return (
     <div 
+      ref={overlayRef}
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -23,7 +44,11 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
         }
       }}
     >
-      <div className="bg-white rounded-lg w-full max-w-md p-6" onClick={(e) => e.stopPropagation()}>
+      <div 
+        ref={modalRef}
+        className="bg-white rounded-lg w-full max-w-md p-6" 
+        onClick={(e) => e.stopPropagation()}
+      >
         <h2 className="text-xl font-bold mb-4">注文内容の確認</h2>
         
         <div className="space-y-4 max-h-96 overflow-y-auto">
