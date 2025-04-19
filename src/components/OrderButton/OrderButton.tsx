@@ -45,6 +45,10 @@ const OrderButton: React.FC<OrderButtonProps> = ({
       
       await sendLineNotification(userId, message);
       setShowModal(false);
+      // 注文完了後に全選択解除
+      selectedItems.forEach(item => {
+        onQuantityChange(item.id, -1);
+      });
     } catch (error: unknown) {
       console.error('Error:', error);
       const errorMessage = error instanceof Error ? error.message : '不明なエラー';

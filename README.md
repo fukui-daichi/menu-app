@@ -1,54 +1,46 @@
-# React + TypeScript + Vite
+# メニュー選択アプリ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## プロジェクト概要
+ReactとTypeScriptを使用して開発した、料理メニュー選択Webアプリケーションです。
+友人を自宅に招いて料理を振る舞う際に、事前に食べたい料理を選べるようにすることを目的としています。
 
-Currently, two official plugins are available:
+**本番環境URL**: [https://menu-app-wine-ten.vercel.app](https://menu-app-wine-ten.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 主な特徴と設計思想
+1. **UX重視のインターフェース**
+   - モバイルファースト設計でスマホ操作に最適化
+   - アニメーションを多用した直感的なUI
+   - ワンクリックで注文可能なシンプルな操作フロー
 
-## Expanding the ESLint configuration
+2. **技術的挑戦**
+   - TypeScriptで型安全な開発を徹底
+   - カスタムフックを活用した状態管理
+   - LINE通知APIとの連携実装
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. **パフォーマンス最適化**
+   - Viteによる高速ビルド
+   - コード分割による初期読み込み時間の短縮
+   - メモ化による不要な再レンダリングの防止
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 技術スタックと選定理由
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### コア技術
+- **React 19**: 最新のReact機能を活用し、将来性のあるコードベースを構築
+- **TypeScript 5.7**: 型安全性によりバグを未然に防止
+- **Tailwind CSS 3.4**: 迅速なUI開発と一貫性のあるデザインシステム
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 主要ライブラリ
+| ライブラリ | 用途 | 選定理由 |
+|------------|------|----------|
+| react-hot-toast | 通知システム | 軽量でカスタマイズ性が高い |
+| gsap | アニメーション | スムーズなモーション実現 |
+| vite-plugin-svgr | SVG最適化 | アイコン管理を効率化 |
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### インフラ
+- **Vercel**: 高速なデプロイと自動CI/CD
+- **LINE Messaging API**: リアルタイム通知システム
+
+## 今後の拡張予定
+- レシピ詳細表示機能
+- レシピ画像拡大表示機能
+- 注文履歴管理
