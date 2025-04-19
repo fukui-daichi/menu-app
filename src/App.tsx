@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Toaster } from 'react-hot-toast';
 import MenuList from './components/MenuList/MenuList';
 import CategoryFilter from './components/CategoryFilter/CategoryFilter';
 import SearchBar from './components/SearchBar/SearchBar';
@@ -42,6 +43,30 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-gray-100 flex justify-center items-center h-[100svh]">
+      <Toaster 
+        position="top-center"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#4CAF50',
+            color: '#fff',
+            padding: '12px 24px',
+            borderRadius: '8px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+          },
+          success: {
+            iconTheme: {
+              primary: '#fff',
+              secondary: '#4CAF50'
+            }
+          },
+          error: {
+            style: {
+              background: '#F44336'
+            }
+          }
+        }}
+      />
       {/* スマートフォンフレーム */}
       <div className="bg-white rounded-3xl shadow-xl w-full max-w-md h-full flex flex-col">
         {/* ヘッダー */}

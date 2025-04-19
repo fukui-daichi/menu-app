@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import toast from 'react-hot-toast';
 import { gsap } from 'gsap';
 import { MenuItem } from '../types/menu';
 
@@ -84,18 +85,7 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
           )}
         </div>
 
-        <div className="flex justify-between mt-6">
-          <button
-            onClick={() => {
-              selectedItems.forEach(item => {
-                onQuantityChange(item.id, -1);
-              });
-            }}
-            className="px-4 py-2 text-red-600 border border-red-200 rounded hover:bg-red-50"
-            disabled={selectedItems.length === 0}
-          >
-            全選択解除
-          </button>
+        <div className="flex justify-end mt-6">
           <div className="flex gap-2">
             <button
               onClick={onCancel}
@@ -104,13 +94,15 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
               キャンセル
             </button>
           <button
-            onClick={selectedItems.length > 0 ? onConfirm : undefined}
-            disabled={selectedItems.length === 0}
-            className={`px-4 py-2 text-white rounded ${
-              selectedItems.length > 0 
-                ? 'bg-primary hover:bg-primary-dark cursor-pointer' 
-                : 'bg-gray-300 cursor-not-allowed'
-            }`}
+            onClick={() => {
+              if (selectedItems.length > 0) {
+                toast.success('注文が完了しました！');
+                onConfirm();
+              } else {
+                toast.error('メニューが選択されていません');
+              }
+            }}
+            className="px-4 py-2 text-white rounded bg-primary hover:bg-primary-dark cursor-pointer"
           >
             注文を確定
           </button>

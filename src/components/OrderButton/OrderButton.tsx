@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { MenuItem } from '../../types/menu';
 import { sendLineNotification, formatOrderMessage } from '../../api/line-notify';
 import OrderConfirmationModal from '../OrderConfirmationModal';
@@ -21,7 +22,7 @@ const OrderButton: React.FC<OrderButtonProps> = ({
 
   const handleOrder = async () => {
     if (selectedItems.length === 0) {
-      alert('注文するメニューを選択してください');
+      toast.error('注文するメニューを選択してください');
       return;
     }
     setShowModal(true);
@@ -43,12 +44,11 @@ const OrderButton: React.FC<OrderButtonProps> = ({
       );
       
       await sendLineNotification(userId, message);
-      alert('注文が送信されました！LINEで確認してください');
       setShowModal(false);
     } catch (error: unknown) {
       console.error('Error:', error);
       const errorMessage = error instanceof Error ? error.message : '不明なエラー';
-      alert(`注文の送信中にエラーが発生しました: ${errorMessage}`);
+      toast.error(`注文の送信中にエラーが発生しました: ${errorMessage}`);
     }
   };
 
