@@ -4,7 +4,7 @@
     "name": "肉じゃが",
     "category": "和食",
     "isRecommended": true,
-    "imageUrl": "/images/menu/no-image.jpg",
+    "imageUrl": "/images/menu/16.jpg",
     "description": "大葉の風味が効いただし巻き卵",
     "tags": ["じゃがいも", "にんじん", "たまねぎ", "豚肉" ]
   },
@@ -53,6 +53,15 @@
     "tags": ["パスタ", "サーモン", "生クリーム", "白ワイン"]
   },
   {
+    "id": "28",
+    "name": "チャーハン",
+    "category": "中華",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["ご飯", "卵", "豚肉", "長ねぎ"]
+  },
+  {
     "id": "6",
     "name": "天津チャーハン",
     "category": "中華",
@@ -60,15 +69,6 @@
     "imageUrl": "/images/menu/6.jpg",
     "description": "カニ風味の天津風チャーハン",
     "tags": ["ご飯", "卵", "カニカマ", "長ねぎ"]
-  },
-  {
-    "id": "10",
-    "name": "魯肉飯（ルーローハン）",
-    "category": "中華",
-    "isRecommended": false,
-    "imageUrl": "/images/menu/10.jpg",
-    "description": "台湾風の煮込み豚肉ご飯",
-    "tags": ["豚肉", "ご飯", "醤油", "八角"]
   },
   {
     "id": "2",
@@ -94,6 +94,15 @@
     "imageUrl": "/images/menu/7.jpg",
     "description": "ピリ辛キムチのチャーハン",
     "tags": ["ご飯", "キムチ", "豚肉", "ごま油"]
+  },
+  {
+    "id": "10",
+    "name": "魯肉飯（ルーローハン）",
+    "category": "中華",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/10.jpg",
+    "description": "台湾風の煮込み豚肉ご飯",
+    "tags": ["豚肉", "ご飯", "醤油", "八角"]
   },
   {
     "id": "11",
@@ -238,5 +247,131 @@
     "imageUrl": "/images/menu/no-image.jpg",
     "description": "",
     "tags": ["ちくわ"]
+  },
+  {
+    "id": "26", 
+    "name": "生姜焼き",
+    "category": "和食",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["豚肉", "たまねぎ", "しょうが"]
+  },
+  {
+    "id": "27", 
+    "name": "豚キムチ",
+    "category": "和食",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["豚肉", "たまねぎ", "キムチ"]
+  },
+  {
+    "id": "29", 
+    "name": "親子丼",
+    "category": "和食",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["鶏肉", "たまねぎ", "卵"]
+  },
+  {
+    "id": "30", 
+    "name": "にんじんしりしり",
+    "category": "一品",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["にんじん", "ツナ", "卵"]
+  },
+  {
+    "id": "31", 
+    "name": "無限ピーマン",
+    "category": "一品",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["ピーマン", "ツナ"]
+  },
+  {
+    "id": "32", 
+    "name": "チャーシュー",
+    "category": "一品",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["豚肉"]
+  },
+  {
+    "id": "33", 
+    "name": "焼きそば",
+    "category": "一品",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["豚肉", "キャベツ", "にんじん"]
+  },
+  {
+    "id": "34", 
+    "name": "筑前煮",
+    "category": "和食",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["鶏肉", "にんじん", "ごぼう", "しいたけ", "こんにゃく"]
+  },
+  {
+    "id": "35", 
+    "name": "ポトフ",
+    "category": "洋食",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["ウインナー", "キャベツ", "にんじん", "じゃがいも"]
+  },
+  {
+    "id": "36", 
+    "name": "夏野菜漬け",
+    "category": "和食",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["なす", "トマト", "ピーマン"]
+  },
+  {
+    "id": "37", 
+    "name": "なすの煮浸し",
+    "category": "和食",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["なす", "しょうが"]
+  },
+  {
+    "id": "38", 
+    "name": "野菜炒め",
+    "category": "和食",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["キャベツ", "にんじん", "ピーマン", "もやし"]
+  },
+  {
+    "id": "39", 
+    "name": "肉野菜炒め",
+    "category": "和食",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["豚肉", "キャベツ", "にんじん", "ピーマン", "もやし"]
+  },
+  {
+    "id": "40", 
+    "name": "鶏むねたたき大葉焼き",
+    "category": "一品",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["鶏肉", "大葉"]
   }
 ]
