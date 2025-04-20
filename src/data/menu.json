@@ -1,191 +1,242 @@
 [
   {
+    "id": "16",
+    "name": "肉じゃが",
+    "category": "和食",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "大葉の風味が効いただし巻き卵",
+    "tags": ["じゃがいも", "にんじん", "たまねぎ", "豚肉" ]
+  },
+  {
     "id": "1",
-    "name": "ローストビーフ丼",
+    "name": "ローストビーフ",
     "category": "洋食",
     "isRecommended": false,
-    "price": 980,
     "imageUrl": "/images/menu/1.jpg",
-    "description": "",
-    "tags": ["牛", "牛肉"],
+    "description": "柔らかく仕上げた特製ローストビーフ",
+    "tags": ["牛肉", "赤身肉", "にんにく", "ローズマリー"],
     "recipe": {
       "ingredients": [
-        { "name": "パスタ", "amount": "100g" },
-        { "name": "和風だし", "amount": "大さじ2" }
+        {"name": "牛もも肉", "amount": "300g"},
+        {"name": "にんにく", "amount": "2片"}, 
+        {"name": "ローズマリー", "amount": "適量"}
       ],
-      "steps": ["パスタを茹でる", "和風だしと和える"]
+      "steps": ["肉を塩胡椒で下味", "低温でじっくり焼く"]
     }
   },
   {
-    "id": "2",
-    "name": "チキンカレー",
-    "category": "カレー",
-    "isRecommended": true,
-    "price": 850,
-    "imageUrl": "/images/menu/2.jpg",
-    "description": "スパイス効いた本格カレー",
-    "tags": ["辛口", "人気"]
-  },
-  {
     "id": "3",
-    "name": "季節のサラダ",
-    "category": "サラダ",
-    "isRecommended": false,
-    "price": 680,
-    "imageUrl": "/images/menu/3.jpg",
-    "description": "旬の野菜を使ったサラダ",
-    "tags": ["ヘルシー"]
-  },
-  {
-    "id": "4",
-    "name": "トマトパスタ",
-    "category": "パスタ",
+    "name": "カプレーゼ",
+    "category": "イタリアン",
     "isRecommended": true,
-    "price": 980,
-    "imageUrl": "/images/menu/4.jpg",
-    "description": "新鮮なトマトのパスタ",
-    "tags": ["イタリアン", "人気"]
+    "imageUrl": "/images/menu/3.jpg",
+    "description": "モッツァレラチーズとトマトのサラダ",
+    "tags": ["トマト", "モッツァレラ", "バジル", "オリーブオイル"]
   },
   {
     "id": "5",
-    "name": "ビーフシチュー",
-    "category": "洋食",
+    "name": "ゴルゴンゾーラリガトーニ",
+    "category": "イタリアン",
     "isRecommended": false,
-    "price": 1200,
     "imageUrl": "/images/menu/5.jpg",
-    "description": "赤ワイン仕立てのビーフシチュー",
-    "tags": ["ボリューム"]
-  },
-  {
-    "id": "6",
-    "name": "海鮮丼",
-    "category": "和食",
-    "isRecommended": true,
-    "price": 1500,
-    "imageUrl": "/images/menu/6.jpg",
-    "description": "新鮮な魚介類の海鮮丼",
-    "tags": ["新鮮", "人気"]
-  },
-  {
-    "id": "7",
-    "name": "チーズバーガー",
-    "category": "ハンバーガー",
-    "isRecommended": false,
-    "price": 780,
-    "imageUrl": "/images/menu/7.jpg",
-    "description": "ジューシーなチーズバーガー",
-    "tags": ["ボリューム"]
+    "description": "濃厚なゴルゴンゾーラソースのパスタ",
+    "tags": ["パスタ", "ゴルゴンゾーラ", "生クリーム", "くるみ"]
   },
   {
     "id": "8",
-    "name": "野菜炒め",
-    "category": "中華",
-    "isRecommended": false,
-    "price": 750,
+    "name": "サーモンクリームパスタ",
+    "category": "イタリアン",
+    "isRecommended": true,
     "imageUrl": "/images/menu/8.jpg",
-    "description": "季節の野菜を炒めたヘルシー料理",
-    "tags": ["ヘルシー"]
+    "description": "生クリームとサーモンのパスタ",
+    "tags": ["パスタ", "サーモン", "生クリーム", "白ワイン"]
   },
   {
-    "id": "9",
-    "name": "サーモングリル",
-    "category": "魚料理",
-    "isRecommended": true,
-    "price": 1280,
-    "imageUrl": "/images/menu/9.jpg",
-    "description": "皮パリッと焼いたサーモン",
-    "tags": ["ヘルシー", "人気"]
+    "id": "6",
+    "name": "天津チャーハン",
+    "category": "中華",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/6.jpg",
+    "description": "カニ風味の天津風チャーハン",
+    "tags": ["ご飯", "卵", "カニカマ", "長ねぎ"]
   },
   {
     "id": "10",
-    "name": "チョコレートケーキ",
-    "category": "デザート",
-    "isRecommended": true,
-    "price": 580,
+    "name": "魯肉飯（ルーローハン）",
+    "category": "中華",
+    "isRecommended": false,
     "imageUrl": "/images/menu/10.jpg",
-    "description": "濃厚なチョコレートケーキ",
-    "tags": ["甘い", "人気"]
+    "description": "台湾風の煮込み豚肉ご飯",
+    "tags": ["豚肉", "ご飯", "醤油", "八角"]
   },
   {
-    "id": "menu11",
-    "name": "和風ハンバーグ", 
-    "category": "肉料理",
-    "isRecommended": false,
-    "imageUrl": "/images/menu/no-image.jpg",
-    "description": "和風だしの効いたハンバーグ",
+    "id": "2",
+    "name": "ガパオライス",
+    "category": "エスニック", 
+    "isRecommended": true,
+    "imageUrl": "/images/menu/2.jpg",
+    "description": "タイ風バジル炒め",
+    "tags": ["鶏肉", "バジル", "唐辛子", "卵"],
     "recipe": {
       "ingredients": [
-        {"name": "合挽き肉", "amount": "200g"},
-        {"name": "玉ねぎ", "amount": "1/2個"},
-        {"name": "パン粉", "amount": "1/2カップ"},
-        {"name": "和風だし", "amount": "小さじ1"}
-      ],
-      "steps": ["材料を混ぜ合わせる", "形を整えて焼く"]
-    },
-    "tags": ["和風", "肉"]
+        {"name": "鶏ひき肉", "amount": "200g"},
+        {"name": "バジル", "amount": "10枚"},
+        {"name": "卵", "amount": "1個"}
+      ]
+    }
   },
   {
-    "id": "menu12",
-    "name": "トマトスープ",
-    "category": "スープ",
+    "id": "7",
+    "name": "キムチチャーハン",
+    "category": "中華",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/7.jpg",
+    "description": "ピリ辛キムチのチャーハン",
+    "tags": ["ご飯", "キムチ", "豚肉", "ごま油"]
+  },
+  {
+    "id": "11",
+    "name": "カレー",
+    "category": "エスニック",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "じっくり煮込んだカレー",
+    "tags": ["ご飯", "じゃがいも", "にんじん", "たまねぎ", "豚肉", "ごま油"]
+  },
+  {
+    "id": "12",
+    "name": "だし巻き卵",
+    "category": "一品",
     "isRecommended": true,
     "imageUrl": "/images/menu/no-image.jpg",
-    "description": "新鮮なトマトを使ったスープ",
-    "recipe": {
-      "ingredients": [
-        {"name": "トマト", "amount": "3個"},
-        {"name": "玉ねぎ", "amount": "1/2個"},
-        {"name": "コンソメ", "amount": "1個"}
-      ]
-    },
-    "tags": ["野菜", "ヘルシー"]
+    "description": "だしの風味が効いただし巻き卵",
+    "tags": ["卵", "だし", "砂糖"]
   },
   {
-    "id": "menu13", 
-    "name": "チキンカレー",
-    "category": "カレー",
-    "isRecommended": false,
-    "imageUrl": "/images/menu/no-image.jpg",
-    "description": "スパイシーなチキンカレー",
-    "recipe": {
-      "ingredients": [
-        {"name": "鶏肉", "amount": "300g"},
-        {"name": "カレールー", "amount": "1箱"},
-        {"name": "玉ねぎ", "amount": "1個"}
-      ]
-    },
-    "tags": ["スパイシー", "肉"]
-  },
-  {
-    "id": "menu14",
-    "name": "ほうれん草のソテー",
-    "category": "野菜料理",
+    "id": "9",
+    "name": "大葉のだし巻き卵",
+    "category": "一品",
     "isRecommended": true,
-    "imageUrl": "/images/menu/no-image.jpg", 
-    "description": "にんにく風味のほうれん草",
-    "recipe": {
-      "ingredients": [
-        {"name": "ほうれん草", "amount": "1束"},
-        {"name": "にんにく", "amount": "1片"},
-        {"name": "オリーブオイル", "amount": "大さじ1"}
-      ]
-    },
-    "tags": ["ヘルシー", "野菜"]
+    "imageUrl": "/images/menu/9.jpg",
+    "description": "大葉の風味が効いただし巻き卵",
+    "tags": ["卵", "大葉", "だし", "砂糖"]
   },
   {
-    "id": "menu15",
-    "name": "鮭のムニエル",
-    "category": "魚料理",
+    "id": "13",
+    "name": "豚汁",
+    "category": "和食",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["みそ", "大根", "豚肉", "ごぼう", "にんじん", "こんにゃく"]
+  },
+  {
+    "id": "14",
+    "name": "味噌汁",
+    "category": "一品",
     "isRecommended": false,
     "imageUrl": "/images/menu/no-image.jpg",
-    "description": "バター香る鮭料理",
-    "recipe": {
-      "ingredients": [
-        {"name": "鮭", "amount": "2切れ"},
-        {"name": "バター", "amount": "20g"},
-        {"name": "レモン", "amount": "1/4個"}
-      ]
-    },
-    "tags": ["魚", "シンプル"]
+    "description": "だしの風味が味噌汁",
+    "tags": ["みそ", "だし", "豆腐"]
+  },
+  {
+    "id": "15",
+    "name": "モスチキン",
+    "category": "その他",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["鶏肉", "揚げ物"]
+  },
+  {
+    "id": "17",
+    "name": "ペペロンチーノ",
+    "category": "イタリアン",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["パスタ", "にんにく", "唐辛子", "オリーブオイル"]
+  },
+  {
+    "id": "18",
+    "name": "オートミールお好み焼き",
+    "category": "和食",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["オートミール", "キャベツ"]
+  },
+  {
+    "id": "21", 
+    "name": "ポテトサラダ",
+    "category": "一品",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/4.jpg",
+    "description": "クリーミーな洋風ポテトサラダ",
+    "tags": ["じゃがいも", "マヨネーズ", "たまねぎ", "きゅうり", "ベーコン"]
+  },
+  {
+    "id": "4", 
+    "name": "ポテトサラダ（洋風）",
+    "category": "一品",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/4.jpg",
+    "description": "クリーミーな洋風ポテトサラダ",
+    "tags": ["じゃがいも", "マヨネーズ", "たまねぎ", "きゅうり"]
+  },
+  {
+    "id": "19", 
+    "name": "ポテトサラダ（おつまみ風）",
+    "category": "一品",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["じゃがいも", "マヨネーズ", "たまねぎ", "にんにく", "ベーコン"]
+  },
+  {
+    "id": "20", 
+    "name": "ポテトサラダ（和風）",
+    "category": "一品",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["じゃがいも", "マヨネーズ", "たまねぎ", "鰹節"]
+  },
+  {
+    "id": "22",
+    "name": "きのこクリームパスタ",
+    "category": "イタリアン",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/8.jpg",
+    "description": "生クリームとサーモンのパスタ",
+    "tags": ["パスタ", "舞茸", "マッシュルーム", "生クリーム", "白ワイン"]
+  },
+  {
+    "id": "23", 
+    "name": "アボカド刺身",
+    "category": "一品",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["アボカド", "わさび"]
+  },
+  {
+    "id": "24",
+    "name": "ポテトフライ",
+    "category": "一品",
+    "isRecommended": true,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "業務スーパーのやつ",
+    "tags": ["じゃがいも"]
+  },
+  {
+    "id": "25", 
+    "name": "ちくわの磯辺揚げ",
+    "category": "一品",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/no-image.jpg",
+    "description": "",
+    "tags": ["ちくわ"]
   }
 ]
