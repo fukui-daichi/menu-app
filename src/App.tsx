@@ -71,7 +71,7 @@ const App: React.FC = () => {
       <div className="bg-white rounded-3xl shadow-xl w-full max-w-md h-full flex flex-col">
         {/* ヘッダー */}
         <div className="px-4 py-3 border-b sticky top-0 bg-primary text-white z-10">
-          <div className="text-xl font-semibold">Menu</div>
+          <div className="text-xl font-semibold">menu</div>
         </div>
 
         {/* 検索バー */}
