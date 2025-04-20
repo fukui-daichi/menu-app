@@ -1,13 +1,13 @@
 [
   {
     "id": "1",
-    "name": "和風パスタ",
-    "category": "パスタ",
-    "isRecommended": true,
+    "name": "ローストビーフ丼",
+    "category": "洋食",
+    "isRecommended": false,
     "price": 980,
     "imageUrl": "/images/menu/1.jpg",
-    "description": "和風だしの効いたパスタ",
-    "tags": ["和風", "人気"],
+    "description": "",
+    "tags": ["牛", "牛肉"],
     "recipe": {
       "ingredients": [
         { "name": "パスタ", "amount": "100g" },

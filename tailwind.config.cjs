@@ -11,6 +11,9 @@ module.exports = {
         secondary: '#FFB38A', // 中間のパステルオレンジ
         accent: '#FFD1B6', // 明るいパステルオレンジ
       },
+      fontFamily: {
+        sans: ['Noto Sans JP', 'sans-serif'],
+      },
     },
   },
   plugins: [],
