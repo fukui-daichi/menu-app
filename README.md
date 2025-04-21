@@ -8,7 +8,6 @@ ReactとTypeScriptを使用して開発した、料理メニュー選択Webア�
 ユーザビリティを重視し、直感的な操作で簡単にメニュー選択ができるように設計しました。
 
 **本番環境URL**: <a href="https://menu-app-wine-ten.vercel.app" target="_blank" rel="noopener noreferrer">https://menu-app-wine-ten.vercel.app</a>
-![リンクのタイトル](https://menu-app-wine-ten.vercel.app)
 
 ## ✨ 主な特徴と設計思想
 
