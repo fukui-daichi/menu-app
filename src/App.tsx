@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { Toaster } from 'react-hot-toast';
-import MenuList from './components/MenuList/MenuList';
-import CategoryFilter from './components/CategoryFilter/CategoryFilter';
-import SearchBar from './components/SearchBar/SearchBar';
-import OrderButton from './components/OrderButton/OrderButton';
+import MenuList from './components/layout/MenuList/MenuList';
+import CategoryFilter from './components/features/Category/CategoryFilter';
+import SearchBar from './components/features/Search/SearchBar';
+import OrderButton from './components/features/Order/OrderButton';
 import { MenuItem } from './types/menu';
 import menuData from './data/menu.json';
 

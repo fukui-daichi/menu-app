@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { MenuItem } from '../../types/menu';
+import { MenuItem } from '../../../types/menu';
 import { gsap } from 'gsap';
-import SkeletonImage from '../common/SkeletonImage';
+import SkeletonImage from '../../common/Image/SkeletonImage';
 
 interface MenuListProps {
   items: MenuItem[];

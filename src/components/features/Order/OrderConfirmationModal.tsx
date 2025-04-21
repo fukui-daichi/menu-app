@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { gsap } from 'gsap';
-import { MenuItem } from '../types/menu';
+import { MenuItem } from '../../../types/menu';
 
 interface OrderConfirmationModalProps {
   selectedItems: MenuItem[];
