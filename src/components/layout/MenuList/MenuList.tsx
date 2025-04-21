@@ -2,13 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { MenuItem } from '../../../types/menu';
 import { gsap } from 'gsap';
 import SkeletonImage from '../../common/Image/SkeletonImage';
-
-interface MenuListProps {
-  items: MenuItem[];
-  selectedItems: MenuItem[];
-  onSelectItem: (item: MenuItem) => void;
-  onQuantityChange: (id: string, quantity: number) => void;
-}
+import type { MenuListProps } from '../../../types/layout/menu-list';
 
 const MenuList: React.FC<MenuListProps> = ({ items, selectedItems, onSelectItem, onQuantityChange }) => {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);

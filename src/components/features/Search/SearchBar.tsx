@@ -1,20 +1,9 @@
 import React, { useState, useMemo } from 'react';
-import { MenuItem } from '../../types/menu';
-
-interface SearchBarProps {
-  items: MenuItem[];
-  onSearch: (results: MenuItem[]) => void;
-}
+import type { SearchBarProps, Suggestions } from '../../../types/features/search';
 
 const SearchBar: React.FC<SearchBarProps> = ({ items, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
-
-  interface Suggestions {
-    menuNames: string[];
-    tags: string[];
-    categories: string[];
-  }
 
   // サジェストデータ生成
   const suggestions = useMemo<Suggestions>(() => {

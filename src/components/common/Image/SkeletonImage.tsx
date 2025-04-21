@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-
-interface SkeletonImageProps {
-  src: string;
-  alt: string;
-  className?: string;
-  imageClassName?: string;
-  skeletonClassName?: string;
-}
+import type { SkeletonImageProps } from '../../../types/components/image';
 
 const SkeletonImage: React.FC<SkeletonImageProps> = ({
   src,

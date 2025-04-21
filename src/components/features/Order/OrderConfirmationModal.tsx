@@ -1,14 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { gsap } from 'gsap';
-import { MenuItem } from '../../../types/menu';
-
-interface OrderConfirmationModalProps {
-  selectedItems: MenuItem[];
-  onConfirm: () => void;
-  onCancel: () => void;
-  onQuantityChange: (id: string, quantity: number) => void;
-}
+import type { OrderConfirmationModalProps } from '../../../types/features/order';
 
 const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
   selectedItems,

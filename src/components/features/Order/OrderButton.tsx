@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { MenuItem } from '../../../types/menu';
 import { sendLineNotification, formatOrderMessage } from '../../../api/line-notify';
 import OrderConfirmationModal from './OrderConfirmationModal';
-
-interface OrderButtonProps {
-  selectedItems: MenuItem[];
-  onQuantityChange: (id: string, quantity: number) => void;
-}
+import type { OrderButtonProps } from '../../../types/features/order';
 
 const OrderButton: React.FC<OrderButtonProps> = ({ 
   selectedItems,

@@ -1,12 +1,5 @@
 import React from 'react';
-import { MenuItem } from '../../types/menu';
-
-interface CategoryFilterProps {
-  items: MenuItem[];
-  currentCategory: string | null;
-  onSelectCategory: (category: string | null) => void;
-  onSelectRecommended: () => void;
-}
+import type { CategoryFilterProps } from '../../../types/features/category';
 
 const CategoryFilter: React.FC<CategoryFilterProps> = ({ 
   items, 
