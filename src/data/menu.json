@@ -280,7 +280,7 @@
     "name": "にんじんしりしり",
     "category": "一品",
     "isRecommended": false,
-    "imageUrl": "/images/menu/no-image.jpg",
+    "imageUrl": "/images/menu/30.jpg",
     "description": "",
     "tags": ["にんじん", "ツナ", "卵"]
   },
@@ -373,5 +373,32 @@
     "imageUrl": "/images/menu/no-image.jpg",
     "description": "",
     "tags": ["鶏肉", "大葉"]
+  },
+  {
+    "id": "41", 
+    "name": "回鍋肉",
+    "category": "中華",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/41.jpg",
+    "description": "",
+    "tags": ["豚肉", "キャベツ", "ピーマン"]
+  },
+  {
+    "id": "42", 
+    "name": "ナポリタン",
+    "category": "イタリアン",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/42.jpg",
+    "description": "",
+    "tags": ["ピーマン", "マッシュルーム", "玉ねぎ", "ウインナー"]
+  },
+  {
+    "id": "43", 
+    "name": "マカロニサラダ",
+    "category": "一品",
+    "isRecommended": false,
+    "imageUrl": "/images/menu/43.jpg",
+    "description": "",
+    "tags": ["マカロニ", "ベーコン", "卵"]
   }
 ]
